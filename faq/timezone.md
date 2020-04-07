@@ -80,7 +80,20 @@ Utilizzando versioni precedenti del Connector/J il problema non si presenta. Ovv
 
 ### Impostare un fuso orario esplicito in MySql
 
-Questo si può fare andando a modificare il file di configurazione `my.cnf` o `my.ini`. Vedi https://stackoverflow.com/a/19069310/986709
+Questo si può fare andando a modificare il file di configurazione `my.cnf` o `my.ini`. Vedi: https://stackoverflow.com/a/19069310/986709
+
+
+Oppure è possibile impostare il fuso orario anche da Command Line. Come primo step è necessario caricare la tabella delle Time Zones così come specificato nella pagina uffiiciale:
+https://dev.mysql.com/doc/refman/5.7/en/time-zone-support.html#time-zone-installation
+
+Una modalità per fare questo in Windows consiste in:
+
+* scaricare il file zip: timezone_2019c_posix_sql (anno e lettera variano nel tempo)
+* estrarre il file direttamente in C:\ per un più semplice accesso
+* Lanciare il MySQL Command Line Client
+* eseguire i comandi nel Command Line Client:
+```mysql> use mysql; <br/> mysql> source c:\timezone_posix.sql;```
+* eseguire la query (anche da Workbench): ```SET GLOBAL time_zone = 'Europe/Rome';```
 
 
 
